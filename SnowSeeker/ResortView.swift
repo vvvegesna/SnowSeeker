@@ -20,7 +20,20 @@ struct ResortView: View {
                 Image(decorative: resort.id)
                     .resizable()
                     .scaledToFit()
-                
+                    .overlay(
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Text("by \(resort.imageCredit)")
+                                    .padding()
+                                    .font(.footnote)
+                                    .foregroundColor(.white)
+                                    .background(Color.black.opacity(0.75))
+                                    .clipShape(Rectangle())
+                            }
+                        }
+                    )
                 Group {
                     HStack {
                         if sizeClass == .compact {
@@ -43,9 +56,6 @@ struct ResortView: View {
                     
                     Text("Facilities")
                         .font(.headline)
-                    
-//                    Text(ListFormatter.localizedString(byJoining: resort.facilities))
-//                        .padding(.vertical)
                     HStack {
                         ForEach(resort.facilityTypes) { facility in
                             facility.icon

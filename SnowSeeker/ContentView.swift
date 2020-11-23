@@ -35,7 +35,7 @@ struct ContentView: View {
                     if self.favorites.contains(resort) {
                         Spacer()
                         Image(systemName: "heart.fill")
-                        .accessibility(label: Text("This is a favorite resort"))
+                            .accessibility(label: Text("This is a favorite resort"))
                             .foregroundColor(.red)
                     }
                 }
